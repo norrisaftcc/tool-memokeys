@@ -1,0 +1,126 @@
+{
+  "name": "Essential Windows System Shortcuts",
+  "description": "Fundamental keyboard shortcuts that work across most Windows applications",
+  "version": "1.0.0",
+  "author": "MemoKeys Team",
+  "platform": "windows",
+  "category": "system",
+  "difficulty": "beginner",
+  "tags": ["windows", "essential", "basic", "system"],
+  "shortcuts": [
+    {
+      "id": "copy",
+      "action": "Copy selected text or files",
+      "windows": "Ctrl+C",
+      "mac": "Cmd+C",
+      "linux": "Ctrl+C",
+      "category": "clipboard",
+      "difficulty": "beginner",
+      "frequency": "very-common",
+      "learn_priority": 10,
+      "context": "Works in most applications",
+      "alternatives": [
+        {
+          "windows": "Ctrl+Insert",
+          "description": "Alternative copy shortcut"
+        }
+      ]
+    },
+    {
+      "id": "paste",
+      "action": "Paste copied content",
+      "windows": "Ctrl+V",
+      "mac": "Cmd+V", 
+      "linux": "Ctrl+V",
+      "category": "clipboard",
+      "difficulty": "beginner",
+      "frequency": "very-common",
+      "learn_priority": 10,
+      "context": "Works in most applications",
+      "alternatives": [
+        {
+          "windows": "Shift+Insert",
+          "description": "Alternative paste shortcut"
+        }
+      ]
+    },
+    {
+      "id": "cut",
+      "action": "Cut selected text or files",
+      "windows": "Ctrl+X",
+      "mac": "Cmd+X",
+      "linux": "Ctrl+X", 
+      "category": "clipboard",
+      "difficulty": "beginner",
+      "frequency": "common",
+      "learn_priority": 8,
+      "context": "Works in most applications"
+    },
+    {
+      "id": "undo",
+      "action": "Undo the last action",
+      "windows": "Ctrl+Z",
+      "mac": "Cmd+Z",
+      "linux": "Ctrl+Z",
+      "category": "text-editing",
+      "difficulty": "beginner", 
+      "frequency": "very-common",
+      "learn_priority": 9,
+      "context": "Works in most applications"
+    },
+    {
+      "id": "redo",
+      "action": "Redo the last undone action",
+      "windows": "Ctrl+Y",
+      "mac": "Cmd+Shift+Z",
+      "linux": "Ctrl+Y",
+      "category": "text-editing",
+      "difficulty": "intermediate",
+      "frequency": "common", 
+      "learn_priority": 7,
+      "context": "Works in most applications",
+      "alternatives": [
+        {
+          "windows": "Ctrl+Shift+Z",
+          "description": "Alternative redo in some applications"
+        }
+      ]
+    },
+    {
+      "id": "select_all",
+      "action": "Select all content",
+      "windows": "Ctrl+A",
+      "mac": "Cmd+A",
+      "linux": "Ctrl+A",
+      "category": "text-editing",
+      "difficulty": "beginner",
+      "frequency": "very-common",
+      "learn_priority": 9,
+      "context": "Works in most applications"
+    },
+    {
+      "id": "save",
+      "action": "Save current document",
+      "windows": "Ctrl+S", 
+      "mac": "Cmd+S",
+      "linux": "Ctrl+S",
+      "category": "file-management",
+      "difficulty": "beginner",
+      "frequency": "very-common",
+      "learn_priority": 10,
+      "context": "Works in most applications"
+    },
+    {
+      "id": "find",
+      "action": "Open find/search dialog",
+      "windows": "Ctrl+F",
+      "mac": "Cmd+F", 
+      "linux": "Ctrl+F",
+      "category": "search",
+      "difficulty": "beginner",
+      "frequency": "very-common",
+      "learn_priority": 8,
+      "context": "Works in most applications"
+    }
+  ]
+}

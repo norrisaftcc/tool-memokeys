@@ -1,0 +1,186 @@
+{
+  "name": "Enhanced System Shortcuts with NLP Learning",
+  "description": "Essential shortcuts with multi-modal learning anchors based on cognitive science",
+  "version": "2.0.0",
+  "author": "MemoKeys Educational Team",
+  "platform": "cross-platform",
+  "category": "system",
+  "difficulty": "beginner",
+  "tags": ["enhanced", "nlp", "multi-modal", "cognitive-science"],
+  "shortcuts": [
+    {
+      "id": "copy",
+      "action": "Copy selected text or files",
+      "windows": "Ctrl+C",
+      "mac": "Cmd+C",
+      "linux": "Ctrl+C",
+      "category": "clipboard",
+      "difficulty": "beginner",
+      "frequency": "very-common",
+      "learn_priority": 10,
+      "context": "Works in most applications - fundamental building block",
+      "learning_anchors": {
+        "audio": {
+          "success_sound": "success_bell.mp3",
+          "action_sound": "paper_rustle.mp3",
+          "mnemonic_phrase": "Control-Copy",
+          "phonetic_pattern": "short-short"
+        },
+        "visual": {
+          "icon": "copy_icon.svg",
+          "color_theme": "#4CAF50",
+          "hand_position": "Left pinky on Ctrl, left index on C",
+          "visual_metaphor": "Grabbing and duplicating like photocopying"
+        },
+        "kinesthetic": {
+          "finger_pattern": "Pinky down first, then index finger tap",
+          "pressure_pattern": "firm-light",
+          "rhythm": "simultaneous-press"
+        }
+      },
+      "cognitive_framework": {
+        "mental_model": "Copy creates a duplicate in clipboard memory for later use",
+        "prerequisite_shortcuts": [],
+        "builds_toward": ["paste", "cut", "select_all"],
+        "common_mistakes": [
+          {
+            "mistake": "Pressing keys sequentially instead of together",
+            "correction": "Hold Ctrl, then press C while holding",
+            "prevention_tip": "Think 'chord' like piano, not sequence"
+          },
+          {
+            "mistake": "Forgetting to select text first",
+            "correction": "Always select before copying",
+            "prevention_tip": "Blue highlight = ready to copy"
+          }
+        ],
+        "success_criteria": {
+          "speed_target_ms": 500,
+          "accuracy_target_percent": 95,
+          "retention_days": 30
+        }
+      },
+      "spaced_repetition": {
+        "initial_interval_hours": 4,
+        "difficulty_multiplier": 1.0,
+        "mastery_threshold": 5
+      }
+    },
+    {
+      "id": "paste",
+      "action": "Paste copied content",
+      "windows": "Ctrl+V",
+      "mac": "Cmd+V",
+      "linux": "Ctrl+V",
+      "category": "clipboard",
+      "difficulty": "beginner",
+      "frequency": "very-common",
+      "learn_priority": 10,
+      "context": "Completes the copy operation - the 'delivery' half",
+      "learning_anchors": {
+        "audio": {
+          "success_sound": "success_chime.mp3",
+          "action_sound": "tape_dispense.mp3",
+          "mnemonic_phrase": "Control-Vee",
+          "phonetic_pattern": "short-long"
+        },
+        "visual": {
+          "icon": "paste_icon.svg",
+          "color_theme": "#2196F3",
+          "hand_position": "Left pinky on Ctrl, left index on V",
+          "visual_metaphor": "Pouring or placing contents from clipboard"
+        },
+        "kinesthetic": {
+          "finger_pattern": "Same pinky position, slide index to V",
+          "pressure_pattern": "firm-firm",
+          "rhythm": "quick-together"
+        }
+      },
+      "cognitive_framework": {
+        "mental_model": "Paste delivers clipboard contents to current cursor position",
+        "prerequisite_shortcuts": ["copy"],
+        "builds_toward": ["cut", "paste_special"],
+        "common_mistakes": [
+          {
+            "mistake": "Pasting without positioning cursor",
+            "correction": "Click where you want content to appear",
+            "prevention_tip": "Cursor = destination target"
+          },
+          {
+            "mistake": "Expecting paste to work without copying first",
+            "correction": "Must copy before paste works",
+            "prevention_tip": "Copy fills the clipboard bucket"
+          }
+        ],
+        "success_criteria": {
+          "speed_target_ms": 400,
+          "accuracy_target_percent": 98,
+          "retention_days": 30
+        }
+      },
+      "spaced_repetition": {
+        "initial_interval_hours": 2,
+        "difficulty_multiplier": 0.8,
+        "mastery_threshold": 4
+      }
+    },
+    {
+      "id": "undo",
+      "action": "Undo the last action",
+      "windows": "Ctrl+Z",
+      "mac": "Cmd+Z",
+      "linux": "Ctrl+Z",
+      "category": "text-editing",
+      "difficulty": "beginner",
+      "frequency": "very-common",
+      "learn_priority": 9,
+      "context": "Safety net - reverses mistakes immediately",
+      "learning_anchors": {
+        "audio": {
+          "success_sound": "rewind_whoosh.mp3",
+          "action_sound": "tape_rewind.mp3",
+          "mnemonic_phrase": "Control-Zap-back",
+          "phonetic_pattern": "short-snap"
+        },
+        "visual": {
+          "icon": "undo_arrow.svg",
+          "color_theme": "#FF9800",
+          "hand_position": "Left pinky on Ctrl, left index reaches to Z",
+          "visual_metaphor": "Rewinding time, erasing like pencil eraser"
+        },
+        "kinesthetic": {
+          "finger_pattern": "Pinky stays, index finger stretches down-left to Z",
+          "pressure_pattern": "firm-quick",
+          "rhythm": "snap-action"
+        }
+      },
+      "cognitive_framework": {
+        "mental_model": "Undo steps backward through action history like rewind",
+        "prerequisite_shortcuts": [],
+        "builds_toward": ["redo", "multiple_undo"],
+        "common_mistakes": [
+          {
+            "mistake": "Panicking when something goes wrong",
+            "correction": "Immediately try Ctrl+Z as first response",
+            "prevention_tip": "Undo is your safety net - use it fearlessly"
+          },
+          {
+            "mistake": "Forgetting undo can be repeated",
+            "correction": "Keep pressing Ctrl+Z to go further back",
+            "prevention_tip": "Each Ctrl+Z = one step back in time"
+          }
+        ],
+        "success_criteria": {
+          "speed_target_ms": 300,
+          "accuracy_target_percent": 99,
+          "retention_days": 45
+        }
+      },
+      "spaced_repetition": {
+        "initial_interval_hours": 6,
+        "difficulty_multiplier": 1.2,
+        "mastery_threshold": 6
+      }
+    }
+  ]
+}

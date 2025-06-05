@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoKeys - Keyboard Shortcut Tester</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <header>
+            <h1>⌨️ MemoKeys</h1>
+            <p>Master your keyboard shortcuts</p>
+            <div class="controls">
+                <button id="theme-toggle" class="theme-btn">☀️</button>
+                <select id="platform-select">
+                    <option value="auto">Auto-detect</option>
+                    <option value="windows">Windows</option>
+                    <option value="mac">Mac</option>
+                </select>
+            </div>
+        </header>
+
+        <main id="app">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="screen active">
+                <div class="welcome-content">
+                    <h2>Test Your Shortcut Knowledge</h2>
+                    <p>We'll show you an action, you press the keyboard shortcut!</p>
+                    <p class="platform-info">Platform: <span id="detected-platform">Detecting...</span></p>
+                    <button id="start-test" class="btn btn-primary">Start Test</button>
+                </div>
+            </div>
+
+            <!-- Test Screen -->
+            <div id="test-screen" class="screen">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                    <span class="progress-text" id="progress-text">Question 1 of 5</span>
+                </div>
+
+                <div class="test-content">
+                    <h2 id="action-prompt">Copy selected text</h2>
+                    <div class="shortcut-area">
+                        <p>Press the keyboard shortcut:</p>
+                        <div id="key-display" class="key-display">Listening...</div>
+                        <div id="feedback" class="feedback"></div>
+                    </div>
+                    
+                    <div class="test-controls">
+                        <button id="skip-btn" class="btn btn-secondary">Skip</button>
+                        <div class="score">Score: <span id="current-score">0</span>/<span id="total-questions">5</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <div class="results-content">
+                    <h2>🎉 Test Complete!</h2>
+                    <div class="final-score">
+                        <span id="final-score">4</span>/<span id="final-total">5</span>
+                        <div class="percentage" id="percentage">80%</div>
+                    </div>
+                    <div class="performance-message" id="performance-message">
+                        Great job! You're well on your way to shortcut mastery.
+                    </div>
+                    <div class="results-details" id="results-details">
+                        <!-- Individual results will be populated here -->
+                    </div>
+                    <button id="retry-btn" class="btn btn-primary">Try Again</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

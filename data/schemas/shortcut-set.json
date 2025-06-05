@@ -1,0 +1,337 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://memokeys.io/schemas/shortcut-set.json",
+  "title": "MemoKeys Shortcut Set",
+  "description": "Schema for defining keyboard shortcut test sets",
+  "type": "object",
+  "required": ["name", "version", "shortcuts"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the shortcut set",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what this shortcut set covers",
+      "maxLength": 500
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of this shortcut set (e.g., '1.0.0')"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or organization that created this set",
+      "maxLength": 100
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["windows", "mac", "linux", "cross-platform"],
+      "description": "Primary platform this shortcut set targets"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "system",
+        "browser", 
+        "text-editor",
+        "ide",
+        "productivity",
+        "creative",
+        "gaming",
+        "accessibility",
+        "custom"
+      ],
+      "description": "Category of application or use case"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced", "expert"],
+      "description": "Overall difficulty level of this shortcut set"
+    },
+    "application": {
+      "type": "object",
+      "description": "Specific application details if applicable",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Application name (e.g., 'Visual Studio Code')"
+        },
+        "version": {
+          "type": "string",
+          "description": "Application version this applies to"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Official application website"
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 50
+      },
+      "description": "Tags for discovery and filtering"
+    },
+    "shortcuts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 200,
+      "items": {
+        "$ref": "#/definitions/shortcut"
+      }
+    }
+  },
+  "definitions": {
+    "shortcut": {
+      "type": "object",
+      "required": ["id", "action"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "description": "Unique identifier for this shortcut within the set"
+        },
+        "action": {
+          "type": "string",
+          "description": "What this shortcut does (e.g., 'Copy selected text')",
+          "minLength": 5,
+          "maxLength": 200
+        },
+        "windows": {
+          "type": "string",
+          "description": "Windows key combination (e.g., 'Ctrl+C')"
+        },
+        "mac": {
+          "type": "string", 
+          "description": "macOS key combination (e.g., 'Cmd+C')"
+        },
+        "linux": {
+          "type": "string",
+          "description": "Linux key combination (e.g., 'Ctrl+C')"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "clipboard",
+            "navigation", 
+            "text-editing",
+            "file-management",
+            "window-management",
+            "browser-navigation",
+            "search",
+            "formatting",
+            "debugging",
+            "version-control",
+            "other"
+          ],
+          "description": "Category of shortcut functionality"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced", "expert"],
+          "description": "Difficulty level of this specific shortcut"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "windows": {"type": "string"},
+              "mac": {"type": "string"},
+              "linux": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          },
+          "description": "Alternative key combinations that perform the same action"
+        },
+        "context": {
+          "type": "string",
+          "description": "When/where this shortcut applies (e.g., 'In text editors only')",
+          "maxLength": 200
+        },
+        "note": {
+          "type": "string",
+          "description": "Additional notes or tips about this shortcut",
+          "maxLength": 300
+        },
+        "frequency": {
+          "type": "string",
+          "enum": ["very-common", "common", "occasional", "rare"],
+          "description": "How frequently this shortcut is typically used"
+        },
+        "learn_priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Learning priority (1-10, higher = more important to learn)"
+        },
+        "learning_anchors": {
+          "type": "object",
+          "description": "Multi-modal learning anchors based on NLP and cognitive science",
+          "properties": {
+            "audio": {
+              "type": "object",
+              "description": "Auditory anchors for memory formation",
+              "properties": {
+                "success_sound": {
+                  "type": "string",
+                  "description": "Reward sound when shortcut is correct (positive reinforcement)",
+                  "pattern": "^[a-z0-9_-]+\\.(mp3|wav|ogg)$"
+                },
+                "action_sound": {
+                  "type": "string",
+                  "description": "Sound representing the action (auditory metaphor)",
+                  "pattern": "^[a-z0-9_-]+\\.(mp3|wav|ogg)$"
+                },
+                "mnemonic_phrase": {
+                  "type": "string",
+                  "description": "Spoken anchor phrase (e.g., 'Control Copy' with rhythm)",
+                  "maxLength": 50
+                },
+                "phonetic_pattern": {
+                  "type": "string",
+                  "description": "Phonetic rhythm pattern for muscle memory (e.g., 'short-long' for Ctrl+C)",
+                  "maxLength": 30
+                }
+              }
+            },
+            "visual": {
+              "type": "object",
+              "description": "Visual anchors and metaphors",
+              "properties": {
+                "icon": {
+                  "type": "string",
+                  "description": "Visual icon representing the action",
+                  "pattern": "^[a-z0-9_-]+\\.(svg|png|jpg)$"
+                },
+                "color_theme": {
+                  "type": "string",
+                  "description": "Color associated with this shortcut category",
+                  "pattern": "^#[0-9a-f]{6}$"
+                },
+                "hand_position": {
+                  "type": "string",
+                  "description": "Description of optimal hand position",
+                  "maxLength": 100
+                },
+                "visual_metaphor": {
+                  "type": "string",
+                  "description": "Visual metaphor for the action (e.g., 'grabbing' for copy)",
+                  "maxLength": 100
+                }
+              }
+            },
+            "kinesthetic": {
+              "type": "object",
+              "description": "Physical movement and muscle memory anchors",
+              "properties": {
+                "finger_pattern": {
+                  "type": "string",
+                  "description": "Finger movement description for muscle memory",
+                  "maxLength": 100
+                },
+                "pressure_pattern": {
+                  "type": "string",
+                  "description": "Key pressure timing (light-firm, quick-hold, etc.)",
+                  "maxLength": 50
+                },
+                "rhythm": {
+                  "type": "string",
+                  "description": "Timing pattern for key combination",
+                  "maxLength": 30
+                }
+              }
+            }
+          }
+        },
+        "cognitive_framework": {
+          "type": "object",
+          "description": "Cognitive learning structure based on educational psychology",
+          "properties": {
+            "mental_model": {
+              "type": "string",
+              "description": "Conceptual framework for understanding the shortcut",
+              "maxLength": 200
+            },
+            "prerequisite_shortcuts": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Shortcuts that should be learned before this one"
+            },
+            "builds_toward": {
+              "type": "array", 
+              "items": {"type": "string"},
+              "description": "More advanced shortcuts this prepares for"
+            },
+            "common_mistakes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "mistake": {"type": "string"},
+                  "correction": {"type": "string"},
+                  "prevention_tip": {"type": "string"}
+                }
+              },
+              "description": "Common errors and how to avoid them"
+            },
+            "success_criteria": {
+              "type": "object",
+              "description": "Measurable success indicators",
+              "properties": {
+                "speed_target_ms": {
+                  "type": "integer",
+                  "description": "Target execution time in milliseconds"
+                },
+                "accuracy_target_percent": {
+                  "type": "integer", 
+                  "minimum": 80,
+                  "maximum": 100,
+                  "description": "Target accuracy percentage"
+                },
+                "retention_days": {
+                  "type": "integer",
+                  "description": "Days user should retain skill without practice"
+                }
+              }
+            }
+          }
+        },
+        "spaced_repetition": {
+          "type": "object",
+          "description": "Spaced repetition scheduling parameters",
+          "properties": {
+            "initial_interval_hours": {
+              "type": "number",
+              "description": "Hours before first review"
+            },
+            "difficulty_multiplier": {
+              "type": "number",
+              "minimum": 1.1,
+              "maximum": 3.0,
+              "description": "How much harder this is than average"
+            },
+            "mastery_threshold": {
+              "type": "integer",
+              "minimum": 3,
+              "maximum": 10,
+              "description": "Consecutive correct answers needed for mastery"
+            }
+          }
+        }
+      },
+      "anyOf": [
+        {"required": ["windows"]},
+        {"required": ["mac"]},
+        {"required": ["linux"]}
+      ]
+    }
+  }
+}
