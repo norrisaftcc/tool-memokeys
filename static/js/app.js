@@ -57,6 +57,11 @@ class MemoKeys {
         
         // Shortcut set selection
         this.shortcutSetsContainer = document.getElementById('shortcut-sets-container');
+        
+        // Error message elements
+        this.errorMessage = document.getElementById('error-message');
+        this.errorText = this.errorMessage.querySelector('.error-text');
+        this.errorClose = this.errorMessage.querySelector('.error-close');
     }
 
     setupEventListeners() {
@@ -82,6 +87,9 @@ class MemoKeys {
         document.addEventListener('keydown', (e) => this.handleKeyDown(e));
         document.addEventListener('keyup', (e) => this.handleKeyUp(e));
         
+        // Error message close
+        this.errorClose.addEventListener('click', () => this.hideError());
+        
         // Prevent default for common shortcuts during test
         document.addEventListener('keydown', (e) => {
             if (this.isListening) {
@@ -106,16 +114,30 @@ class MemoKeys {
         this.platformSelect.value = this.platform;
     }
     
+    showError(message) {
+        this.errorText.textContent = message;
+        this.errorMessage.classList.remove('hidden');
+        // Auto-hide error after 10 seconds
+        setTimeout(() => this.hideError(), 10000);
+    }
+    
+    hideError() {
+        this.errorMessage.classList.add('hidden');
+    }
+    
     async loadShortcutSets() {
         try {
             const response = await fetch('/api/shortcut-sets');
-            if (!response.ok) throw new Error('Failed to load shortcut sets');
+            if (!response.ok) {
+                throw new Error(`Failed to load shortcut sets: ${response.status} ${response.statusText}`);
+            }
             
             this.availableShortcutSets = await response.json();
             this.displayShortcutSets();
         } catch (error) {
             console.error('Error loading shortcut sets:', error);
-            this.shortcutSetsContainer.innerHTML = '<p class="error">Failed to load shortcut sets. Please refresh the page.</p>';
+            this.showError('Failed to load shortcut sets. Please check your connection and refresh the page.');
+            this.shortcutSetsContainer.innerHTML = '<div class="error-state">Unable to load shortcut sets. Please try refreshing the page.</div>';
         }
     }
     
@@ -163,27 +185,39 @@ class MemoKeys {
 
     async loadShortcuts() {
         if (!this.selectedShortcutSet) {
-            alert('Please select a shortcut set first');
+            this.showError('Please select a shortcut set first');
             return false;
         }
         
         try {
             const response = await fetch(`/api/shortcuts/${this.selectedShortcutSet.id}/${this.platform}`);
-            if (!response.ok) throw new Error('Failed to load shortcuts');
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Failed to load shortcuts: ${response.status} ${response.statusText}. ${errorText}`);
+            }
             
             const data = await response.json();
             this.shortcuts = data.shortcuts.slice(0, 5); // Limit to 5 for MVP
             return true;
         } catch (error) {
             console.error('Error loading shortcuts:', error);
-            alert('Failed to load shortcuts. Please try again.');
+            this.showError('Failed to load shortcuts. Please check your connection and try again.');
             return false;
         }
     }
 
     async startTest() {
+        // Clear any existing errors
+        this.hideError();
+        
         const loaded = await this.loadShortcuts();
         if (!loaded) return;
+        
+        // Validate we have shortcuts to test
+        if (!this.shortcuts || this.shortcuts.length === 0) {
+            this.showError('No shortcuts available for this set. Please select a different set.');
+            return;
+        }
         
         this.currentQuestionIndex = 0;
         this.score = 0;

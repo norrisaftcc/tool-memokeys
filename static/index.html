@@ -29,6 +29,12 @@
                     <p>We'll show you an action, you press the keyboard shortcut!</p>
                     <p class="platform-info">Platform: <span id="detected-platform">Detecting...</span></p>
                     
+                    <!-- Error message area -->
+                    <div id="error-message" class="error-message hidden" role="alert" aria-live="polite">
+                        <span class="error-text"></span>
+                        <button class="error-close" aria-label="Close error message">&times;</button>
+                    </div>
+                    
                     <div class="shortcut-set-selection">
                         <h3>Choose a shortcut set:</h3>
                         <div id="shortcut-sets-container" class="shortcut-sets-grid">
