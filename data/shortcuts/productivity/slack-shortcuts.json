@@ -1,0 +1,47 @@
+{
+  "name": "Slack Productivity Shortcuts",
+  "description": "Speed up your Slack workflow with these essential shortcuts",
+  "platform": "cross-platform",
+  "shortcuts": [
+    {
+      "id": "quick-switcher",
+      "action": "Quick switcher (jump to any channel)",
+      "windows": "Ctrl+K",
+      "mac": "Cmd+K",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "search",
+      "action": "Search messages and files",
+      "windows": "Ctrl+F",
+      "mac": "Cmd+F",
+      "category": "search",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mark-read",
+      "action": "Mark as read",
+      "windows": "Esc",
+      "mac": "Esc",
+      "category": "message",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "edit-message",
+      "action": "Edit last message",
+      "windows": "Up",
+      "mac": "Up",
+      "category": "message",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "react-emoji",
+      "action": "Add emoji reaction to last message",
+      "windows": "Ctrl+Shift+\\",
+      "mac": "Cmd+Shift+\\",
+      "category": "message",
+      "difficulty": "intermediate"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "name": "VS Code Editor Shortcuts",
+  "description": "Comprehensive productivity shortcuts for Visual Studio Code",
+  "platform": "cross-platform",
+  "shortcuts": [
+    {
+      "id": "command-palette",
+      "action": "Open Command Palette",
+      "windows": "Ctrl+Shift+P",
+      "mac": "Cmd+Shift+P",
+      "category": "navigation",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "quick-open",
+      "action": "Quick Open File",
+      "windows": "Ctrl+P",
+      "mac": "Cmd+P",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "toggle-terminal",
+      "action": "Toggle Terminal",
+      "windows": "Ctrl+`",
+      "mac": "Cmd+`",
+      "category": "view",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "multi-cursor",
+      "action": "Add cursor above/below",
+      "windows": "Ctrl+Alt+Up/Down",
+      "mac": "Cmd+Option+Up/Down",
+      "category": "editing",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "multi-cursor-click",
+      "action": "Add cursor with mouse",
+      "windows": "Alt+Click",
+      "mac": "Option+Click",
+      "category": "editing",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "comment-line",
+      "action": "Toggle line comment",
+      "windows": "Ctrl+/",
+      "mac": "Cmd+/",
+      "category": "editing",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "comment-block",
+      "action": "Toggle block comment",
+      "windows": "Shift+Alt+A",
+      "mac": "Shift+Option+A",
+      "category": "editing",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "find",
+      "action": "Find in file",
+      "windows": "Ctrl+F",
+      "mac": "Cmd+F",
+      "category": "search",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "find-replace",
+      "action": "Find and replace",
+      "windows": "Ctrl+H",
+      "mac": "Cmd+H",
+      "category": "search",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "find-in-files",
+      "action": "Find in all files",
+      "windows": "Ctrl+Shift+F",
+      "mac": "Cmd+Shift+F",
+      "category": "search",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "go-to-line",
+      "action": "Go to line number",
+      "windows": "Ctrl+G",
+      "mac": "Cmd+G",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "go-to-definition",
+      "action": "Go to definition",
+      "windows": "F12",
+      "mac": "F12",
+      "category": "navigation",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "peek-definition",
+      "action": "Peek definition",
+      "windows": "Alt+F12",
+      "mac": "Option+F12",
+      "category": "navigation",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "rename-symbol",
+      "action": "Rename symbol",
+      "windows": "F2",
+      "mac": "F2",
+      "category": "refactoring",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "format-document",
+      "action": "Format document",
+      "windows": "Shift+Alt+F",
+      "mac": "Shift+Option+F",
+      "category": "formatting",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "format-selection",
+      "action": "Format selection",
+      "windows": "Ctrl+K Ctrl+F",
+      "mac": "Cmd+K Cmd+F",
+      "category": "formatting",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "fold-all",
+      "action": "Fold all sections",
+      "windows": "Ctrl+K Ctrl+0",
+      "mac": "Cmd+K Cmd+0",
+      "category": "folding",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "unfold-all",
+      "action": "Unfold all sections",
+      "windows": "Ctrl+K Ctrl+J",
+      "mac": "Cmd+K Cmd+J",
+      "category": "folding",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "toggle-sidebar",
+      "action": "Toggle sidebar visibility",
+      "windows": "Ctrl+B",
+      "mac": "Cmd+B",
+      "category": "view",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "zen-mode",
+      "action": "Toggle Zen Mode",
+      "windows": "Ctrl+K Z",
+      "mac": "Cmd+K Z",
+      "category": "view",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "split-editor",
+      "action": "Split editor",
+      "windows": "Ctrl+\\",
+      "mac": "Cmd+\\",
+      "category": "view",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "close-editor",
+      "action": "Close current editor",
+      "windows": "Ctrl+W",
+      "mac": "Cmd+W",
+      "category": "file",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "save-all",
+      "action": "Save all files",
+      "windows": "Ctrl+K S",
+      "mac": "Cmd+K S",
+      "category": "file",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "select-line",
+      "action": "Select entire line",
+      "windows": "Ctrl+L",
+      "mac": "Cmd+L",
+      "category": "selection",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "duplicate-line",
+      "action": "Duplicate line",
+      "windows": "Shift+Alt+Down",
+      "mac": "Shift+Option+Down",
+      "category": "editing",
+      "difficulty": "beginner"
+    }
+  ]
+}

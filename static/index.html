@@ -28,7 +28,16 @@
                     <h2>Test Your Shortcut Knowledge</h2>
                     <p>We'll show you an action, you press the keyboard shortcut!</p>
                     <p class="platform-info">Platform: <span id="detected-platform">Detecting...</span></p>
-                    <button id="start-test" class="btn btn-primary">Start Test</button>
+                    
+                    <div class="shortcut-set-selection">
+                        <h3>Choose a shortcut set:</h3>
+                        <div id="shortcut-sets-container" class="shortcut-sets-grid">
+                            <!-- Shortcut sets will be populated here -->
+                            <div class="loading">Loading shortcut sets...</div>
+                        </div>
+                    </div>
+                    
+                    <button id="start-test" class="btn btn-primary" disabled>Select a shortcut set</button>
                 </div>
             </div>
 

@@ -1,0 +1,47 @@
+{
+  "name": "Chrome Browser Shortcuts",
+  "description": "Essential keyboard shortcuts for Google Chrome",
+  "platform": "cross-platform",
+  "shortcuts": [
+    {
+      "id": "new-tab",
+      "action": "Open new tab",
+      "windows": "Ctrl+T",
+      "mac": "Cmd+T",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "close-tab",
+      "action": "Close current tab",
+      "windows": "Ctrl+W",
+      "mac": "Cmd+W",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "reopen-tab",
+      "action": "Reopen closed tab",
+      "windows": "Ctrl+Shift+T",
+      "mac": "Cmd+Shift+T",
+      "category": "navigation",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "find",
+      "action": "Find in page",
+      "windows": "Ctrl+F",
+      "mac": "Cmd+F",
+      "category": "search",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "dev-tools",
+      "action": "Open Developer Tools",
+      "windows": "F12",
+      "mac": "Cmd+Option+I",
+      "category": "developer",
+      "difficulty": "intermediate"
+    }
+  ]
+}

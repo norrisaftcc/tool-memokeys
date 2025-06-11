@@ -1,0 +1,147 @@
+{
+  "name": "Windows Basics",
+  "description": "Essential Windows system shortcuts for everyday use",
+  "platform": "windows",
+  "shortcuts": [
+    {
+      "id": "start-menu",
+      "action": "Open Start menu",
+      "windows": "Win",
+      "category": "system",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "search",
+      "action": "Open Windows search",
+      "windows": "Win+S",
+      "category": "system",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "task-manager",
+      "action": "Open Task Manager",
+      "windows": "Ctrl+Shift+Esc",
+      "category": "system",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "screenshot-full",
+      "action": "Take full screen screenshot",
+      "windows": "Win+PrtScn",
+      "category": "screenshot",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "snipping-tool",
+      "action": "Open Snipping Tool",
+      "windows": "Win+Shift+S",
+      "category": "screenshot",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "task-view",
+      "action": "Open Task View",
+      "windows": "Win+Tab",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "switch-apps",
+      "action": "Switch between applications",
+      "windows": "Alt+Tab",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "close-window",
+      "action": "Close current window",
+      "windows": "Alt+F4",
+      "category": "window",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "minimize-all",
+      "action": "Minimize all windows",
+      "windows": "Win+M",
+      "category": "window",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "show-desktop",
+      "action": "Show/hide desktop",
+      "windows": "Win+D",
+      "category": "window",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "lock-screen",
+      "action": "Lock computer",
+      "windows": "Win+L",
+      "category": "system",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "file-explorer",
+      "action": "Open File Explorer",
+      "windows": "Win+E",
+      "category": "system",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "settings",
+      "action": "Open Settings",
+      "windows": "Win+I",
+      "category": "system",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "clipboard-history",
+      "action": "Open clipboard history",
+      "windows": "Win+V",
+      "category": "clipboard",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "virtual-desktop-new",
+      "action": "Create new virtual desktop",
+      "windows": "Win+Ctrl+D",
+      "category": "desktop",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "virtual-desktop-switch",
+      "action": "Switch between virtual desktops",
+      "windows": "Win+Ctrl+Left/Right",
+      "category": "desktop",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "snap-left",
+      "action": "Snap window to left half",
+      "windows": "Win+Left",
+      "category": "window",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "snap-right",
+      "action": "Snap window to right half",
+      "windows": "Win+Right",
+      "category": "window",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "maximize-window",
+      "action": "Maximize window",
+      "windows": "Win+Up",
+      "category": "window",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "run-dialog",
+      "action": "Open Run dialog",
+      "windows": "Win+R",
+      "category": "system",
+      "difficulty": "intermediate"
+    }
+  ]
+}

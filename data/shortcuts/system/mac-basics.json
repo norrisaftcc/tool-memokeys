@@ -1,0 +1,112 @@
+{
+  "name": "Mac Basics",
+  "description": "Essential macOS system shortcuts for everyday use",
+  "platform": "mac",
+  "shortcuts": [
+    {
+      "id": "spotlight-search",
+      "action": "Open Spotlight search",
+      "mac": "Cmd+Space",
+      "category": "system",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "force-quit",
+      "action": "Force quit applications",
+      "mac": "Cmd+Option+Esc",
+      "category": "system",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "screenshot-full",
+      "action": "Take full screen screenshot",
+      "mac": "Cmd+Shift+3",
+      "category": "screenshot",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "screenshot-selection",
+      "action": "Take screenshot of selection",
+      "mac": "Cmd+Shift+4",
+      "category": "screenshot",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "screenshot-window",
+      "action": "Take screenshot of window",
+      "mac": "Cmd+Shift+4+Space",
+      "category": "screenshot",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "mission-control",
+      "action": "Open Mission Control",
+      "mac": "Ctrl+Up",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "app-expose",
+      "action": "Show all windows of current app",
+      "mac": "Ctrl+Down",
+      "category": "navigation",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "switch-apps",
+      "action": "Switch between applications",
+      "mac": "Cmd+Tab",
+      "category": "navigation",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "close-window",
+      "action": "Close current window",
+      "mac": "Cmd+W",
+      "category": "window",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "quit-app",
+      "action": "Quit application",
+      "mac": "Cmd+Q",
+      "category": "application",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "minimize-window",
+      "action": "Minimize window to dock",
+      "mac": "Cmd+M",
+      "category": "window",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "hide-app",
+      "action": "Hide current application",
+      "mac": "Cmd+H",
+      "category": "application",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "preferences",
+      "action": "Open application preferences",
+      "mac": "Cmd+,",
+      "category": "application",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "empty-trash",
+      "action": "Empty trash",
+      "mac": "Cmd+Shift+Delete",
+      "category": "file",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "get-info",
+      "action": "Get info about selected item",
+      "mac": "Cmd+I",
+      "category": "file",
+      "difficulty": "beginner"
+    }
+  ]
+}

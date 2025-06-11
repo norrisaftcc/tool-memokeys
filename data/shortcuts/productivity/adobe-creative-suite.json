@@ -1,0 +1,199 @@
+{
+  "name": "Adobe Creative Suite",
+  "description": "Essential shortcuts for Adobe Photoshop, Illustrator, and Premiere Pro",
+  "platform": "cross-platform",
+  "shortcuts": [
+    {
+      "id": "ps-new-layer",
+      "action": "Create new layer (Photoshop)",
+      "windows": "Ctrl+Shift+N",
+      "mac": "Cmd+Shift+N",
+      "category": "photoshop",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ps-transform",
+      "action": "Free Transform (Photoshop)",
+      "windows": "Ctrl+T",
+      "mac": "Cmd+T",
+      "category": "photoshop",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ps-deselect",
+      "action": "Deselect (Photoshop)",
+      "windows": "Ctrl+D",
+      "mac": "Cmd+D",
+      "category": "photoshop",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ps-invert-selection",
+      "action": "Invert selection (Photoshop)",
+      "windows": "Ctrl+Shift+I",
+      "mac": "Cmd+Shift+I",
+      "category": "photoshop",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ps-merge-layers",
+      "action": "Merge visible layers (Photoshop)",
+      "windows": "Ctrl+Shift+E",
+      "mac": "Cmd+Shift+E",
+      "category": "photoshop",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ps-brush-size",
+      "action": "Decrease/Increase brush size (Photoshop)",
+      "windows": "[ / ]",
+      "mac": "[ / ]",
+      "category": "photoshop",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ps-zoom",
+      "action": "Zoom in/out (Photoshop)",
+      "windows": "Ctrl++ / Ctrl+-",
+      "mac": "Cmd++ / Cmd+-",
+      "category": "photoshop",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ai-direct-selection",
+      "action": "Direct Selection Tool (Illustrator)",
+      "windows": "A",
+      "mac": "A",
+      "category": "illustrator",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ai-pen-tool",
+      "action": "Pen Tool (Illustrator)",
+      "windows": "P",
+      "mac": "P",
+      "category": "illustrator",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ai-group",
+      "action": "Group objects (Illustrator)",
+      "windows": "Ctrl+G",
+      "mac": "Cmd+G",
+      "category": "illustrator",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ai-ungroup",
+      "action": "Ungroup objects (Illustrator)",
+      "windows": "Ctrl+Shift+G",
+      "mac": "Cmd+Shift+G",
+      "category": "illustrator",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ai-outline-text",
+      "action": "Create outlines from text (Illustrator)",
+      "windows": "Ctrl+Shift+O",
+      "mac": "Cmd+Shift+O",
+      "category": "illustrator",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ai-pathfinder",
+      "action": "Open Pathfinder panel (Illustrator)",
+      "windows": "Shift+Ctrl+F9",
+      "mac": "Shift+Cmd+F9",
+      "category": "illustrator",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "pr-ripple-edit",
+      "action": "Ripple Edit Tool (Premiere Pro)",
+      "windows": "B",
+      "mac": "B",
+      "category": "premiere",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "pr-razor",
+      "action": "Razor Tool (Premiere Pro)",
+      "windows": "C",
+      "mac": "C",
+      "category": "premiere",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pr-play-pause",
+      "action": "Play/Pause (Premiere Pro)",
+      "windows": "Space",
+      "mac": "Space",
+      "category": "premiere",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pr-render-effects",
+      "action": "Render effects in work area (Premiere Pro)",
+      "windows": "Enter",
+      "mac": "Return",
+      "category": "premiere",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "pr-export-media",
+      "action": "Export Media (Premiere Pro)",
+      "windows": "Ctrl+M",
+      "mac": "Cmd+M",
+      "category": "premiere",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pr-mark-in",
+      "action": "Mark In point (Premiere Pro)",
+      "windows": "I",
+      "mac": "I",
+      "category": "premiere",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "pr-mark-out",
+      "action": "Mark Out point (Premiere Pro)",
+      "windows": "O",
+      "mac": "O",
+      "category": "premiere",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "all-save-as",
+      "action": "Save As (All Adobe apps)",
+      "windows": "Ctrl+Shift+S",
+      "mac": "Cmd+Shift+S",
+      "category": "general",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "all-preferences",
+      "action": "Open Preferences (All Adobe apps)",
+      "windows": "Ctrl+K",
+      "mac": "Cmd+K",
+      "category": "general",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "all-fit-screen",
+      "action": "Fit to screen (All Adobe apps)",
+      "windows": "Ctrl+0",
+      "mac": "Cmd+0",
+      "category": "general",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "all-actual-size",
+      "action": "View at 100% (All Adobe apps)",
+      "windows": "Ctrl+1",
+      "mac": "Cmd+1",
+      "category": "general",
+      "difficulty": "beginner"
+    }
+  ]
+}

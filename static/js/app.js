@@ -7,10 +7,13 @@ class MemoKeys {
         this.results = [];
         this.pressedKeys = new Set();
         this.isListening = false;
+        this.selectedShortcutSet = null;
+        this.availableShortcutSets = [];
         
         this.initializeElements();
         this.setupEventListeners();
         this.updatePlatformDisplay();
+        this.loadShortcutSets();
     }
 
     detectPlatform() {
@@ -51,6 +54,9 @@ class MemoKeys {
         
         // Platform display
         this.detectedPlatform = document.getElementById('detected-platform');
+        
+        // Shortcut set selection
+        this.shortcutSetsContainer = document.getElementById('shortcut-sets-container');
     }
 
     setupEventListeners() {
@@ -99,10 +105,70 @@ class MemoKeys {
         this.detectedPlatform.textContent = this.platform === 'mac' ? 'macOS' : 'Windows';
         this.platformSelect.value = this.platform;
     }
+    
+    async loadShortcutSets() {
+        try {
+            const response = await fetch('/api/shortcut-sets');
+            if (!response.ok) throw new Error('Failed to load shortcut sets');
+            
+            this.availableShortcutSets = await response.json();
+            this.displayShortcutSets();
+        } catch (error) {
+            console.error('Error loading shortcut sets:', error);
+            this.shortcutSetsContainer.innerHTML = '<p class="error">Failed to load shortcut sets. Please refresh the page.</p>';
+        }
+    }
+    
+    displayShortcutSets() {
+        this.shortcutSetsContainer.innerHTML = '';
+        
+        const groupedSets = this.availableShortcutSets.reduce((acc, set) => {
+            if (!acc[set.category]) acc[set.category] = [];
+            acc[set.category].push(set);
+            return acc;
+        }, {});
+        
+        Object.entries(groupedSets).forEach(([category, sets]) => {
+            sets.forEach(set => {
+                const card = document.createElement('div');
+                card.className = 'shortcut-set-card';
+                card.dataset.setId = set.id;
+                
+                card.innerHTML = `
+                    <h4>${set.name}</h4>
+                    <div class="category">${category}</div>
+                    ${set.description ? `<div class="description">${set.description}</div>` : ''}
+                `;
+                
+                card.addEventListener('click', () => this.selectShortcutSet(set));
+                this.shortcutSetsContainer.appendChild(card);
+            });
+        });
+    }
+    
+    selectShortcutSet(set) {
+        // Remove previous selection
+        document.querySelectorAll('.shortcut-set-card').forEach(card => {
+            card.classList.remove('selected');
+        });
+        
+        // Mark new selection
+        const selectedCard = document.querySelector(`[data-set-id="${set.id}"]`);
+        selectedCard.classList.add('selected');
+        
+        this.selectedShortcutSet = set;
+        this.startTestBtn.disabled = false;
+        this.startTestBtn.textContent = `Start Test: ${set.name}`;
+    }
 
     async loadShortcuts() {
+        if (!this.selectedShortcutSet) {
+            alert('Please select a shortcut set first');
+            return false;
+        }
+        
         try {
-            const response = await fetch(`/api/shortcuts/${this.platform}`);
+            const response = await fetch(`/api/shortcuts/${this.selectedShortcutSet.id}/${this.platform}`);
             if (!response.ok) throw new Error('Failed to load shortcuts');
             
             const data = await response.json();
