@@ -213,16 +213,16 @@ this.shortcuts = data.shortcuts.slice(0, 5); // Limit to 5 for MVP
 ## Action Items
 
 ### Critical (Security & Bugs)
-1. Fix path traversal vulnerability in file path construction
-2. Add proper input validation for all user inputs
-3. Fix the legacy endpoint bug that always returns Windows shortcuts
-4. Add rate limiting to prevent API abuse
+1. ✅ Fix path traversal vulnerability in file path construction **[COMPLETED - Sprint 1]**
+2. ✅ Add proper input validation for all user inputs **[COMPLETED - Sprint 1]**
+3. ✅ Fix the legacy endpoint bug that always returns Windows shortcuts **[COMPLETED - Sprint 1]**
+4. Add rate limiting to prevent API abuse **[Sprint 2]**
 
 ### High Priority (UX & Errors)
-1. Replace alert() with proper inline error messages
-2. Add comprehensive error handling for failed API calls
-3. Implement proper loading states and error states
-4. Add keyboard navigation for shortcut set selection
+1. ✅ Replace alert() with proper inline error messages **[COMPLETED - Sprint 1]**
+2. ✅ Add comprehensive error handling for failed API calls **[COMPLETED - Sprint 1]**
+3. Implement proper loading states and error states **[Sprint 2]**
+4. Add keyboard navigation for shortcut set selection **[Sprint 2]**
 
 ### Medium Priority (Code Quality)
 1. Add caching for shortcut set discovery

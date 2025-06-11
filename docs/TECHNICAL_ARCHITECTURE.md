@@ -1,10 +1,10 @@
 # Technical Architecture
 
 ## Technology Stack
-- **FastAPI** for REST API backend with automatic OpenAPI documentation
-- **Vanilla JavaScript** for frontend with real keyboard event handling
-- **HTML/CSS** with CSS custom properties for dark/light theming
-- **JSON files** for shortcut definitions with schema validation
+- **FastAPI** for REST API backend with automatic OpenAPI documentation and Pydantic validation
+- **Vanilla JavaScript** for frontend with real keyboard event handling and comprehensive error handling
+- **HTML/CSS** with CSS custom properties for dark/light theming and accessibility features
+- **JSON files** for shortcut definitions with comprehensive schema validation and security checks
 
 ## Why FastAPI + Vanilla JS (vs Streamlit)
 The project migrated from Streamlit to FastAPI + Vanilla JS because:
@@ -52,10 +52,18 @@ detectPlatform() {
 
 ### API Endpoints
 ```python
-@app.get("/api/shortcuts/{platform}")  # Get platform-specific shortcuts
-@app.get("/")                          # Serve main application
-@app.get("/api/health")               # Health check
+@app.get("/api/shortcut-sets")                        # List all available shortcut sets
+@app.get("/api/shortcuts/{shortcut_set_id}/{platform}") # Get shortcuts for specific set/platform
+@app.get("/api/shortcuts/{platform}")                # Legacy endpoint with platform routing
+@app.get("/")                                         # Serve main application
+@app.get("/api/health")                              # Health check
 ```
+
+### Security Features
+- **Path Traversal Protection**: All file paths validated using `is_relative_to()`
+- **Input Validation**: Comprehensive validation using Pydantic enums and format checks
+- **Security Logging**: Structured logging for monitoring security events
+- **Error Handling**: Safe error messages that don't expose system information
 
 ## Data Architecture
 
