@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyCast - Live Key Display</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            -webkit-app-region: drag;
+        }
+
+        #key-display {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #fff;
+            border-radius: 10px;
+            min-width: 300px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.1s ease;
+            -webkit-app-region: no-drag;
+        }
+
+        #key-display.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #00ff00;
+            transform: scale(1.05);
+        }
+
+        .key-combo {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .key {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+        }
+
+        .modifier {
+            background: rgba(0, 123, 255, 0.3);
+            border-color: #007bff;
+        }
+
+        .plus {
+            font-size: 30px;
+            opacity: 0.5;
+        }
+
+        #settings {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+            -webkit-app-region: no-drag;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #size-controls {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="settings">
+        <div id="size-controls">
+            <button onclick="adjustSize(-5)">-</button>
+            <span id="size-label">48px</span>
+            <button onclick="adjustSize(5)">+</button>
+        </div>
+        <button onclick="toggleAlwaysOnTop()">📌</button>
+    </div>
+    
+    <div id="key-display">
+        <span id="key-text">Press any key...</span>
+    </div>
+
+    <script>
+        let currentKeys = new Set();
+        let displayTimeout;
+        let fontSize = 48;
+        let isAlwaysOnTop = false;
+
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        
+        const keyMap = {
+            'Control': isMac ? '⌃' : 'Ctrl',
+            'Meta': isMac ? '⌘' : 'Win',
+            'Alt': isMac ? '⌥' : 'Alt',
+            'Shift': '⇧',
+            'Enter': '⏎',
+            'Backspace': '⌫',
+            'Delete': '⌦',
+            'Escape': 'Esc',
+            'Tab': '⇥',
+            'ArrowUp': '↑',
+            'ArrowDown': '↓',
+            'ArrowLeft': '←',
+            'ArrowRight': '→',
+            ' ': 'Space'
+        };
+
+        function formatKey(key) {
+            return keyMap[key] || (key.length === 1 ? key.toUpperCase() : key);
+        }
+
+        function updateDisplay() {
+            const display = document.getElementById('key-display');
+            const keyText = document.getElementById('key-text');
+            
+            if (currentKeys.size === 0) {
+                keyText.textContent = 'Press any key...';
+                display.classList.remove('active');
+                return;
+            }
+
+            display.classList.add('active');
+            
+            const modifiers = [];
+            const regularKeys = [];
+            
+            currentKeys.forEach(key => {
+                if (['Control', 'Meta', 'Alt', 'Shift'].includes(key)) {
+                    modifiers.push(key);
+                } else {
+                    regularKeys.push(key);
+                }
+            });
+
+            // Sort modifiers in consistent order
+            const modifierOrder = ['Control', 'Alt', 'Shift', 'Meta'];
+            modifiers.sort((a, b) => modifierOrder.indexOf(a) - modifierOrder.indexOf(b));
+            
+            const allKeys = [...modifiers, ...regularKeys];
+            
+            if (allKeys.length === 1) {
+                keyText.textContent = formatKey(allKeys[0]);
+            } else {
+                keyText.innerHTML = '';
+                const combo = document.createElement('div');
+                combo.className = 'key-combo';
+                
+                allKeys.forEach((key, index) => {
+                    const keySpan = document.createElement('span');
+                    keySpan.className = 'key';
+                    if (modifiers.includes(key)) {
+                        keySpan.className += ' modifier';
+                    }
+                    keySpan.textContent = formatKey(key);
+                    combo.appendChild(keySpan);
+                    
+                    if (index < allKeys.length - 1) {
+                        const plus = document.createElement('span');
+                        plus.className = 'plus';
+                        plus.textContent = '+';
+                        combo.appendChild(plus);
+                    }
+                });
+                
+                keyText.appendChild(combo);
+            }
+
+            clearTimeout(displayTimeout);
+            displayTimeout = setTimeout(() => {
+                currentKeys.clear();
+                updateDisplay();
+            }, 2000);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            e.preventDefault();
+            currentKeys.add(e.key);
+            updateDisplay();
+        });
+
+        document.addEventListener('keyup', (e) => {
+            e.preventDefault();
+            currentKeys.delete(e.key);
+            updateDisplay();
+        });
+
+        window.addEventListener('blur', () => {
+            currentKeys.clear();
+            updateDisplay();
+        });
+
+        function adjustSize(delta) {
+            fontSize = Math.max(20, Math.min(100, fontSize + delta));
+            document.getElementById('key-display').style.fontSize = fontSize + 'px';
+            document.getElementById('size-label').textContent = fontSize + 'px';
+        }
+
+        function toggleAlwaysOnTop() {
+            isAlwaysOnTop = !isAlwaysOnTop;
+            // This would need native app wrapper to actually work
+            console.log('Always on top:', isAlwaysOnTop);
+            document.querySelector('button[onclick="toggleAlwaysOnTop()"]').style.background = 
+                isAlwaysOnTop ? 'rgba(0, 255, 0, 0.3)' : 'rgba(255, 255, 255, 0.1)';
+        }
+
+        // Make window draggable (works in Electron or similar)
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+
+        const keyDisplay = document.getElementById('key-display');
+
+        keyDisplay.addEventListener('mousedown', (e) => {
+            initialX = e.clientX;
+            initialY = e.clientY;
+            isDragging = true;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                
+                if (window.moveTo) {
+                    window.moveTo(window.screenX + currentX, window.screenY + currentY);
+                }
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+    </script>
+</body>
+</html>
