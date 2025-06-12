@@ -1,0 +1,57 @@
+{
+  "modes": {
+    "basic": {
+      "name": "Basic Mac",
+      "description": "Essential macOS shortcuts",
+      "files": [
+        "system/mac-basics.json"
+      ]
+    },
+    "vscode": {
+      "name": "VSCode Developer",
+      "description": "macOS basics + VSCode shortcuts",
+      "files": [
+        "system/mac-basics.json",
+        "editors/vscode-shortcuts.json"
+      ]
+    },
+    "adobe": {
+      "name": "Adobe Creative",
+      "description": "macOS basics + Adobe Creative Suite shortcuts",
+      "files": [
+        "system/mac-basics.json",
+        "productivity/adobe-creative-suite.json"
+      ]
+    },
+    "web": {
+      "name": "Web Developer",
+      "description": "macOS basics + VSCode + Chrome shortcuts",
+      "files": [
+        "system/mac-basics.json",
+        "editors/vscode-shortcuts.json",
+        "browsers/chrome-shortcuts.json"
+      ]
+    },
+    "productivity": {
+      "name": "Office Worker",
+      "description": "macOS basics + Slack + Chrome shortcuts",
+      "files": [
+        "system/mac-basics.json",
+        "productivity/slack-shortcuts.json",
+        "browsers/chrome-shortcuts.json"
+      ]
+    },
+    "full": {
+      "name": "Power User",
+      "description": "All available shortcuts",
+      "files": [
+        "system/mac-basics.json",
+        "system/enhanced-system-shortcuts.json",
+        "editors/vscode-shortcuts.json",
+        "browsers/chrome-shortcuts.json",
+        "productivity/adobe-creative-suite.json",
+        "productivity/slack-shortcuts.json"
+      ]
+    }
+  }
+}

@@ -17,7 +17,8 @@ python hotkey_panel_proto/native_app.py
 
 ## Commands
 - **Lint**: `black .` and `flake8 .`
-- **Test**: `pytest` (when implemented)
+- **Test**: `./run_tests.sh` (full test suite) or `python run_basic_tests.py` (basic tests)
+- **KeyCast**: `./run_keycast.sh [--mode MODE] [--text]`
 
 ## Key Files
 - `src/main.py` - FastAPI backend

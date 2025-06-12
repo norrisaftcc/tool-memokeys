@@ -4,6 +4,55 @@
   "platform": "mac",
   "shortcuts": [
     {
+      "id": "copy",
+      "action": "Copy",
+      "mac": "Cmd+C",
+      "category": "edit",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "paste",
+      "action": "Paste",
+      "mac": "Cmd+V",
+      "category": "edit",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "cut",
+      "action": "Cut",
+      "mac": "Cmd+X",
+      "category": "edit",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "undo",
+      "action": "Undo",
+      "mac": "Cmd+Z",
+      "category": "edit",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "redo",
+      "action": "Redo",
+      "mac": "Cmd+Shift+Z",
+      "category": "edit",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "select-all",
+      "action": "Select all",
+      "mac": "Cmd+A",
+      "category": "edit",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "save",
+      "action": "Save",
+      "mac": "Cmd+S",
+      "category": "file",
+      "difficulty": "beginner"
+    },
+    {
       "id": "spotlight-search",
       "action": "Open Spotlight search",
       "mac": "Cmd+Space",

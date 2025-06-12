@@ -1,13 +1,13 @@
 #!/bin/bash
-# MemoKeys Native App Launcher
+# KeyCast - Live Hotkey Display
 
-echo "MemoKeys Native App Launcher"
-echo "==========================="
+echo "KeyCast - Live Keyboard Monitor"
+echo "==============================="
 echo ""
 
 # Check if we're on macOS
 if [[ "$OSTYPE" != "darwin"* ]]; then
-    echo "Error: This native app currently only supports macOS"
+    echo "Error: KeyCast native app currently only supports macOS"
     exit 1
 fi
 
@@ -25,14 +25,14 @@ echo "Installing requirements..."
 pip install -q -r requirements.txt
 pip install -q -r hotkey_panel_proto/requirements.txt
 
-# Run the native app
+# Run KeyCast
 echo ""
-echo "Starting MemoKeys Native App..."
+echo "Starting KeyCast..."
 echo ""
 echo "⚠️  IMPORTANT: Accessibility Permissions Required"
 echo "================================================="
 echo ""
-echo "This app needs permission to monitor keyboard input to detect shortcuts."
+echo "KeyCast displays the keys you're currently pressing in real-time."
 echo ""
 echo "When prompted:"
 echo "1. Click 'Open System Preferences' in the dialog that appears"
@@ -50,12 +50,12 @@ echo ""
 echo "Press Enter to continue..."
 read -r
 
-python hotkey_panel_proto/native_app.py
+python hotkey_panel_proto/hotkey_display.py "$@"
 
 # Check exit code
 if [ $? -ne 0 ]; then
     echo ""
-    echo "❌ The app failed to start. This usually means:"
+    echo "❌ KeyCast failed to start. This usually means:"
     echo "   - Accessibility permissions were not granted"
     echo "   - Python or Terminal needs to be added to Accessibility in System Preferences"
     echo ""
