@@ -103,22 +103,73 @@ class HotkeyMonitor {
         // For keyDown events, add the actual key
         if event.type == .keyDown {
             if let chars = event.charactersIgnoringModifiers?.uppercased() {
-                keys.append(chars)
-                
-                // Add description for common actions
-                let description = getActionDescription(modifiers: keys, key: chars)
-                let display = keys.joined(separator: " + ") + "\n" + description
-                view.updateHotkey(display)
+                // Only show combinations with meaningful modifiers
+                if hasValidModifiers(modifiers: modifiers, key: chars) {
+                    let keyName = getKeyDisplayName(chars)
+                    keys.append(keyName)
+                    
+                    // Add description for common actions
+                    let description = getActionDescription(modifiers: keys, key: keyName)
+                    let shortcutCombo = keys.joined(separator: "+")
+                    
+                    // Enhanced display format: "⌘+C - Copy"
+                    if !description.isEmpty {
+                        let display = "\(shortcutCombo) - \(description)"
+                        view.updateHotkey(display)
+                    } else {
+                        view.updateHotkey(shortcutCombo)
+                    }
+                }
+                // If no valid modifiers, don't show anything (filters out single letters)
             }
-        } else if !keys.isEmpty {
-            // Just show modifiers being held
-            currentModifiers = keys.joined(separator: " + ")
-            view.updateHotkey(currentModifiers + "\n...")
+        } else if !keys.isEmpty && hasAnyMeaningfulModifier(modifiers: modifiers) {
+            // Just show modifiers being held (only if meaningful)
+            currentModifiers = keys.joined(separator: "+")
+            view.updateHotkey(currentModifiers + "...")
         }
         
         // Hide after 2 seconds of no activity
         hideTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
             self.view.updateHotkey("")
+        }
+    }
+    
+    // Helper function to determine if modifiers are meaningful for display
+    func hasValidModifiers(modifiers: NSEvent.ModifierFlags, key: String) -> Bool {
+        // Must have at least one primary modifier (⌘, ⌥, ⌃) OR meaningful shift combination
+        let hasPrimaryModifier = modifiers.contains(.command) || 
+                                modifiers.contains(.option) || 
+                                modifiers.contains(.control)
+        
+        // Allow shift only with specific keys or in combination with other modifiers
+        let hasMeaningfulShift = modifiers.contains(.shift) && 
+                               (hasPrimaryModifier || isSpecialShiftKey(key))
+        
+        return hasPrimaryModifier || hasMeaningfulShift
+    }
+    
+    // Helper function to check if we have any meaningful modifier
+    func hasAnyMeaningfulModifier(modifiers: NSEvent.ModifierFlags) -> Bool {
+        return modifiers.contains(.command) || 
+               modifiers.contains(.option) || 
+               modifiers.contains(.control)
+    }
+    
+    // Helper function for keys that are meaningful with just shift
+    func isSpecialShiftKey(_ key: String) -> Bool {
+        let specialKeys = ["TAB", "SPACE", "RETURN", "DELETE", "ESCAPE"]
+        return specialKeys.contains(key)
+    }
+    
+    // Helper function to get display name for keys
+    func getKeyDisplayName(_ key: String) -> String {
+        switch key {
+        case " ": return "SPACE"
+        case "\t": return "TAB"
+        case "\r", "\n": return "RETURN"
+        case String(Character(UnicodeScalar(27)!)): return "ESC"
+        case String(Character(UnicodeScalar(127)!)): return "DELETE"
+        default: return key
         }
     }
     
