@@ -16,7 +16,26 @@ your screen ──────────────────────�
 └─────────────────────────────────────────────┘
 ```
 
-No install, no dependencies — one Swift file that runs on any modern Mac.
+One Swift file, zero third-party dependencies.
+
+## Requirements — read this before assuming anything
+
+- A Mac on macOS 12 or newer.
+- **Running from source** (`./run.sh`) needs Apple's Command Line Tools, which are **not**
+  on a factory-fresh Mac. One-time install, needs internet:
+
+  ```bash
+  xcode-select --install
+  ```
+
+- **Offline / air-gapped Mac?** Don't rely on source mode. On a connected Mac, run
+  `./run.sh --build` first, then copy the **whole `keycast/` folder including
+  `build/keycast`** to the target machine (USB drive is fine) and start it with
+  `./build/keycast`. Two traps to know:
+  - `build/` is ignored by git — a `git clone`/pull does **not** carry the binary; copy
+    the folder itself.
+  - The compiled binary needs no developer tools (macOS ships the Swift runtime built in)
+    and is built **universal** (Apple Silicon + Intel), so either Mac type works.
 
 ## Run it
 

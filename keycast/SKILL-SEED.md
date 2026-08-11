@@ -39,6 +39,7 @@ description: >
 - A global monitor created while the process is *untrusted* can stay silently dead after permission is granted — recreate the monitor object on the trust flip; don't just poll the flag.
 - `keyDown` events carry `modifierFlags` atomically — never rebuild chord state from press/release sequences (release-order bugs are near-guaranteed).
 - Join-key strings (JSON key ↔ synthesized event string) need one canonical formatter plus a validator over stored data; mismatches fail silently.
+- "Swift is built into macOS" is half-true: the *runtime* ships with the OS, but `swift`/`swiftc` require Xcode Command Line Tools (internet-gated install). For offline/air-gapped targets, ship a compiled binary — built `lipo`-universal (arm64 + x86_64) so the target's CPU doesn't matter — and remember gitignored `build/` output doesn't travel via clone.
 - Adobe bundle-id casing is inconsistent (`com.adobe.Photoshop` vs `com.adobe.illustrator`); verify on the target machine with `osascript -e 'id of application "…"'`.
 - Normalize raw key characters into display names *before* running validity rules on them — the old prototype compared raw `"\t"` against the string `"TAB"`, so its Shift+Tab/Space handling could never fire (latent bug found only on rebuild).
 - Arrow keys arrive from `charactersIgnoringModifiers` as private-use Unicode scalars `0xF700`–`0xF703`, not printable characters — map them explicitly.
