@@ -1,0 +1,7 @@
+{
+  "apps": [
+    { "bundleId": "com.adobe.Photoshop", "file": "photoshop.json" },
+    { "bundleId": "com.adobe.illustrator", "file": "illustrator.json" }
+  ],
+  "globalFile": "global.json"
+}

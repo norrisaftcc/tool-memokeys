@@ -1,4 +1,0 @@
-# Requirements for native keyboard monitoring app
-pynput>=1.7.6
-pyobjc-core>=9.0
-pyobjc-framework-Cocoa>=9.0

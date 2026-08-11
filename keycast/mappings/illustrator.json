@@ -1,0 +1,22 @@
+{
+  "⌘N": "New Document",
+  "⌘⇧O": "Create Outlines",
+  "⌘G": "Group",
+  "⌘⇧G": "Ungroup",
+  "⌘7": "Make Clipping Mask",
+  "⌘⌥7": "Release Clipping Mask",
+  "⌘8": "Make Compound Path",
+  "⌘⌥8": "Release Compound Path",
+  "⌘F": "Paste in Front",
+  "⌘B": "Paste in Back",
+  "⌘D": "Transform Again",
+  "⌘Y": "Outline/Preview Toggle",
+  "⌘2": "Lock Selection",
+  "⌘⌥2": "Unlock All",
+  "⌘3": "Hide Selection",
+  "⌘⌥3": "Show All",
+  "⌘K": "Preferences",
+  "⌘⇧S": "Save As",
+  "⌘0": "Fit Artboard in Window",
+  "⌘1": "Actual Size"
+}
